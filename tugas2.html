@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tugas 2</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		
+		<style>
+      
+		  #map {
+			height: 635px;
+			width: 100%;
+		  }
+	  </style>
+	</head>
+	<body class="landing">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Spectral</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="tugas1.html">Tugas 1</a></li>
+											<li><a href="tugas2.html">Tugas 2</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+				<!-- One -->
+				<!-- Two -->
+						<section class="spotlight">
+							<div class="image">
+								
+								<div id="map"></div>
+								<script>
+
+								  function initMap() {
+
+									var map = new google.maps.Map(document.getElementById('map'), {
+									  zoom: 10,
+									  center: {lat:  -7.683029, lng: 110.814733}
+									});
+
+									
+									var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+
+									
+									var markers = locations.map(function(location, i) {
+									  return new google.maps.Marker({
+										position: location,
+										label: labels[i % labels.length]
+									  });
+									});
+
+									
+									var markerCluster = new MarkerClusterer(map, markers,
+										{imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+								  }
+								  var locations = [
+									{lat: -7.5454454, lng: 110.7432515},
+									{lat: -7.5493359, lng: 110.7689335},
+									{lat: -7.5517057, lng: 110.7358656},
+									{lat: -7.5534279, lng: 110.7327102},
+									{lat: -7.557653,  lng: 110.773923},
+									{lat: -7.5581101, lng: 110.7710169},
+									{lat: -7.5590851, lng: 110.7734261},
+									{lat: -7.560253,  lng: 110.765457},
+									{lat: -7.5645922, lng: 110.7478144},
+									{lat: -7.5734362, lng: 110.8624899},
+									{lat: -7.580004,  lng: 110.806102},
+									{lat: -7.580797,  lng: 110.830742},
+									{lat: -7.588791,  lng: 110.773693},
+									{lat: -7.5962209, lng: 110.7401148},
+									{lat: -7.6001375, lng: 110.818781},
+									{lat: -7.600946,  lng: 110.770916},
+									{lat: -7.602395,  lng: 110.8710247},
+									{lat: -7.6036127, lng: 110.8656389},
+									{lat: -7.604616,  lng: 110.795454},
+									{lat: -7.6068721, lng: 110.8710194},
+									{lat: -7.606959,  lng: 110.785952},
+									{lat: -7.607668,  lng: 110.797538},
+									{lat: -7.6113518, lng: 110.8087539},
+									{lat: -7.620902,  lng: 110.769557},
+									{lat: -7.6276513, lng: 110.8958673},
+									{lat: -7.6312452, lng: 110.7855947},
+									{lat: -7.6465287, lng: 110.8313013},
+									{lat: -7.6591073, lng: 110.7967413},
+									{lat: -7.672331,  lng: 110.841205},
+									{lat: -7.6756697, lng: 110.8359902},
+									{lat: -7.6777217, lng: 110.8397659},
+									{lat: -7.6834125, lng: 110.8499116},
+									{lat: -7.6913128, lng: 110.8722615},
+									{lat: -7.6915861, lng: 110.8741924},
+									{lat: -7.700003,  lng: 110.852395},
+									{lat: -7.7225719, lng: 110.8053237},
+									{lat: -7.7326587, lng: 110.9180975},
+									{lat: -7.7360332, lng: 110.7946083},
+									{lat: -7.7400554, lng: 110.8744422},
+									{lat: -7.7595789, lng: 110.7588524},
+									{lat: -7.620902,  lng: 110.769557},
+									{lat: -7.7654682, lng: 110.8328163}        
+								  ]
+								</script>
+								<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+								</script>
+								<script async defer
+								src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpo4vZ5CFez0-hCnIyRhIVlyWhrtbSTZI&callback=initMap">
+								</script>
+							</div>
+							<div class="content">
+								<h2>Marker Cluster<br />
+								</h2>
+								<p>Pusat Kesehatan Sukoharjo</p>
+							</div>
+						</section>
+					</section>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

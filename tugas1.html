@@ -6,13 +6,19 @@
 -->
 <html>
 	<head>
-		<title>Sistem Informasi Geografis</title>
+		<title>Tugas 1</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<style>
+      #map {
+        height: 635px;
+        width: 100%;
+      }
+	</style>
 	</head>
 	<body class="landing">
 
@@ -20,7 +26,7 @@
 			<div id="page-wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
+				<header id="header" class="alt">
 						<h1><a href="index.html">Spectral</a></h1>
 						<nav id="nav">
 							<ul>
@@ -36,16 +42,39 @@
 								</li>
 							</ul>
 						</nav>
-					</header>
-
+				</header>
 				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Sistem Informasi Geografis</h2>
-							<p>Mutia Hidayati Rahman<br />
-							L200150049<br />
-							</p>
-						</div>
+
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+							<div class="image">
+								<center>
+								  <div id="map"></div>
+								</center>
+								<script>
+								  function initMap() {
+									var rumahmutia = {lat: -7.561897, lng:  110.748751};
+									var map = new google.maps.Map(document.getElementById('map'), {
+									  zoom: 16,
+									  center: rumahmutia
+									});
+									var marker = new google.maps.Marker({
+									  position: rumahmutia,
+									  map: map,
+									  title: 'Rumah Mutia Hidayati Rahman'
+									});
+								  }
+								</script>
+								<script async defer
+								src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpo4vZ5CFez0-hCnIyRhIVlyWhrtbSTZI&callback=initMap">
+								</script>
+							</div>
+							<div class="content">
+								<h2>Lokasi Rumah</h2>
+								<p>Perumaha Villa Ngadirejo, Jl Salak 2, Ngadirejo, Kartasura</p>
+							</div>
+						</section>
 					</section>
 			</div>
 
