@@ -62,15 +62,51 @@
 								</center>
 								<script>
 								function initMap() {
-									var kalbar = {lat: -0.2787808, lng:  111.4752851};
-									var map = new google.maps.Map(document.getElementById('map'), {
-									  zoom: 7,
-									  center: kalbar
-									});
-								}
-								  map.data.loadGeoJson('kalbar.geojson');
+								      var kalbar = {lat: -0.2787808, lng:  111.4752851};
+								      map = new google.maps.Map(document.getElementById('map'), {
+									zoom: 6.5,
+									center: kalbar,
+									mapTypeId: google.maps.MapTypeId.ROADMAP
+								      });
+								      map.data.loadGeoJson('kalbar.geojson');
+								      map.data.setStyle(function(feature) {
+									  var color = 'gray';
+									  if (feature.getProperty('isColorful')) {
+									    color = feature.getProperty('color');
+									  }
+									  return /** @type {google.maps.Data.StyleOptions} */({
+									    fillColor: 'black',
+									    strokeColor: 'red',
+									    strokeWeight: 2,
+									  });
+								      });
 
-								</script>
+								      map.data.addListener('click', function(event) {
+									event.feature.setProperty('isColorful', true);  
+								      });
+
+								      map.data.addListener('mouseover', function(event) {
+									map.data.revertStyle();
+									map.data.overrideStyle(event.feature, {fillColor: 'blue', strokeColor: 'black', strokeWeight: 3});
+								      });
+
+								      map.data.addListener('mouseout', function(event) {
+									map.data.revertStyle();
+								      });
+								    }
+
+								    function ubahtipe(tipenya){
+								      if (tipenya == "ROADMAP") {
+									map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+								      }else if (tipenya == "TERRAIN") {
+									map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+								      }else if (tipenya == "HYBRID") {
+									map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+								      }else if (tipenya == "SATELLITE") {
+									map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+								      }
+								    }
+							    </script>
 								<script async defer
 								src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpo4vZ5CFez0-hCnIyRhIVlyWhrtbSTZI&callback=initMap">
 								</script>
